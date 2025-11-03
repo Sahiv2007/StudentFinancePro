@@ -1,0 +1,156 @@
+    <style>
+        /* *** CSS Custom Properties for theme colors *** */
+        :root {
+            --primary: #1976d2;    /* Main brand color */
+            --secondary: #4CAF50;  /* Success/positive color */
+            --error: #e53935;     /* Error/danger color */
+            --background: #f5f7fa; /* Page background color */
+        }
+
+        /* *** Base page styling *** */
+        body { 
+            font-family: 'Segoe UI', system-ui; /* Modern system font stack */
+            background: var(--background);
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* *** Main content container *** */
+        .container {
+            max-width: 1200px;     /* Maximum content width */
+            margin: 20px auto;     /* Center container horizontally */
+            padding: 30px;
+            background: white;
+            border-radius: 16px;  /* Rounded corners */
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1); /* Subtle shadow */
+        }
+
+        /* *** Responsive dashboard layout *** */
+        .dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px; /* Space between grid items */
+            margin-bottom: 30px;
+        }
+
+        /* *** Card component styling *** */
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08); /* Card shadow */
+        }
+
+        /* *** Chart container styling *** */
+        .chart-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Side-by-side layout */
+            gap: 25px; /* Space between charts */
+            margin-top: 30px;
+        }
+
+        /* *** Chart canvas sizing *** */
+        .card canvas {
+            max-height: 300px;
+            width: 100% !important;
+        }
+
+        /* *** Form layout using CSS Grid *** */
+        .transaction-form, .search-filter {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px; /* Space between form elements */
+            margin-bottom: 30px;
+        }
+
+        /* *** Form control styling *** */
+        input, select, button {
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s ease; /* Smooth hover/focus transitions */
+        }
+
+        button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: 600; /* Semi-bold text */
+        }
+
+        /* *** Transaction amount color coding *** */
+        .negative { color: var(--error); font-weight: 600; }
+        .positive { color: var(--secondary); font-weight: 600; }
+
+        /* *** Table styling *** */
+        table { 
+            width: 100%;
+            border-collapse: collapse; /* Remove spacing between cells */
+            margin: 25px 0;
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 2px solid #f0f0f0; /* Subtle row separator */
+        }
+        th {
+            background: var(--primary);
+            color: white;
+            position: sticky; /* Sticky table headers */
+            top: 0;
+        }
+
+        /* *** Instructions section styling *** */
+        .instructions {
+            margin-bottom: 25px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .instructions-header {
+            background: var(--primary);
+            color: white;
+            padding: 15px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+        }
+        
+        .instructions-content {
+            background: white;
+            padding: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .instructions-content.show {
+            padding: 20px;
+            max-height: 500px;
+        }
+        
+        .instructions-list {
+            padding-left: 20px;
+        }
+        
+        .instructions-list li {
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+
+        /* *** Mobile responsive breakpoint *** */
+        @media (max-width: 768px) {
+            .chart-container {
+                grid-template-columns: 1fr; /* Stack charts vertically */
+            }
+            .transaction-form, .search-filter {
+                grid-template-columns: 1fr; /* Stack form elements */
+            }
+            .container { padding: 15px; } /* Reduce padding on small screens */
+        }
+    </style>
